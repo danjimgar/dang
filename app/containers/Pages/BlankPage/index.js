@@ -30,7 +30,7 @@ class BlankPage extends React.Component {
           <meta property="twitter:description" content={description} />
         </Helmet>
         <PapperBlock title="Blank Page" desc="Some text description">
-          Crypto list:
+          <h1>Crypto list:</h1>
           <div>
             <ul>
               {this.state.data.map(el => (
@@ -38,6 +38,8 @@ class BlankPage extends React.Component {
                   {el.name}
                   :
                   {el.price_usd}
+                  +
+                  {el.percent_change_1h}
                 </li>
               ))}
             </ul>
