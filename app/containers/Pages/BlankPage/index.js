@@ -1,9 +1,21 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import brand from 'dan-api/dummy/brand';
 import { PapperBlock } from 'dan-components';
 
 class BlankPage extends React.Component {
+  constructor() {
+    super();
+    this.state = { data: [] };
+  }
+
+  componentDidMount() {
+    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+      .then(res => res.json())
+      .then(json => this.setState({ data: json }));
+  }
+
   render() {
     const title = brand.name + ' - Blank Page';
     const description = brand.desc;
@@ -18,7 +30,18 @@ class BlankPage extends React.Component {
           <meta property="twitter:description" content={description} />
         </Helmet>
         <PapperBlock title="Blank Page" desc="Some text description">
-          Content
+          Crypto list:
+          <div>
+            <ul>
+              {this.state.data.map(el => (
+                <li>
+                  {el.name}
+                  :
+                  {el.price_usd}
+                </li>
+              ))}
+            </ul>
+          </div>
         </PapperBlock>
       </div>
     );
