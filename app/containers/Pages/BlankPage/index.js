@@ -3,17 +3,24 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import brand from 'dan-api/dummy/brand';
 import { PapperBlock } from 'dan-components';
+import TradingViewWidget from 'react-tradingview-widget';
 
 class BlankPage extends React.Component {
   constructor() {
     super();
-    this.state = { data: [] };
+    this.state = { users: [] };
   }
 
   componentDidMount() {
-    fetch('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-      .then(res => res.json())
-      .then(json => this.setState({ data: json }));
+    fetch('/api/test')
+      .then(res => {
+        console.log(res);
+        return res.json();
+      })
+      .then(users => {
+        console.log(users);
+        this.setState({ users });
+      });
   }
 
   render() {
@@ -33,16 +40,16 @@ class BlankPage extends React.Component {
           <h1>Crypto list:</h1>
           <div>
             <ul>
-              {this.state.data.map(el => (
-                <li>
-                  {el.name}
-                  :
-                  {el.price_usd}
-                  +
-                  {el.percent_change_1h}
-                </li>
-              ))}
+              {this.state.users.map(user => <div key={user.name}>
+Nombre: 
+{' '}
+{user.symbol}
+</div>
+              )}
             </ul>
+
+            <TradingViewWidget symbol="COINBASE:BTCUSD" />
+
           </div>
         </PapperBlock>
       </div>

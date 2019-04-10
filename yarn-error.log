@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js add node-sass
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js add react-tradingview-widget
 
 PATH: 
   /Users/atosworldgridpc-01/.sdkman/candidates/gradle/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/apache-maven-3.6.0/bin
@@ -14,7 +14,16 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: EACCES: permission denied, mkdir '/Users/atosworldgridpc-01/Downloads/dang/node_modules/@babel/cli/node_modules/commander'
+  Error: https://registry.yarnpkg.com/babel-core: tunneling socket could not be established, statusCode=407
+      at ClientRequest.onConnect (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:141016:19)
+      at Object.onceWrapper (events.js:277:13)
+      at ClientRequest.emit (events.js:189:13)
+      at Socket.socketOnData (_http_client.js:475:11)
+      at Socket.emit (events.js:189:13)
+      at addChunk (_stream_readable.js:284:12)
+      at readableAddChunk (_stream_readable.js:265:11)
+      at Socket.Readable.push (_stream_readable.js:220:10)
+      at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
 
 npm manifest: 
   {

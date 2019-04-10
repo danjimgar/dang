@@ -30,10 +30,65 @@ app.use('/api/icons', (req, res) => {
 // Load code preview
 app.use('/api/docs', (req, res) => {
   res.json({
-    records: [
+    test: [
       { source: rawdocs(req.query) }
     ]
   });
+});
+
+app.use('/api/test', (req, res) => {
+  res.json([
+    {
+        "id": "bitcoin", 
+        "name": "Bitcoin", 
+        "symbol": "BTC", 
+        "rank": "1", 
+        "price_usd": "5215.96237821", 
+        "price_btc": "1.0", 
+        "24h_volume_usd": "15475499732.7", 
+        "market_cap_usd": "91990538089.0", 
+        "available_supply": "17636350.0", 
+        "total_supply": "17636350.0", 
+        "max_supply": "21000000.0", 
+        "percent_change_1h": "0.19", 
+        "percent_change_24h": "-0.2", 
+        "percent_change_7d": "9.87", 
+        "last_updated": "1554823710"
+    }, 
+    {
+        "id": "ethereum", 
+        "name": "Ethereum", 
+        "symbol": "ETH", 
+        "rank": "2", 
+        "price_usd": "177.365605939", 
+        "price_btc": "0.03403901", 
+        "24h_volume_usd": "7805189250.53", 
+        "market_cap_usd": "18727728276.0", 
+        "available_supply": "105588274.0", 
+        "total_supply": "105588274.0", 
+        "max_supply": null, 
+        "percent_change_1h": "0.11", 
+        "percent_change_24h": "-0.7", 
+        "percent_change_7d": "13.67", 
+        "last_updated": "1554823701"
+    }, 
+    {
+        "id": "ripple", 
+        "name": "XRP", 
+        "symbol": "XRP", 
+        "rank": "3", 
+        "price_usd": "0.3507435981", 
+        "price_btc": "0.00006728", 
+        "24h_volume_usd": "1175403084.47", 
+        "market_cap_usd": "14658314519.0", 
+        "available_supply": "41792108527.0", 
+        "total_supply": "99991658131.0", 
+        "max_supply": "100000000000", 
+        "percent_change_1h": "0.04", 
+        "percent_change_24h": "-1.7", 
+        "percent_change_7d": "3.63", 
+        "last_updated": "1554823744"
+    }]);
 });
 
 app.use('/', express.static('public', { etag: false }));
